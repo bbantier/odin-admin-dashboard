@@ -9,27 +9,22 @@
 :root {
   font-family: "Helvetica", "Segoe UI", "Tahoma", sans-serif;
   --accent-color: #2374e2;
+  --content-bg: #e3e8ef;
 }
 
 .container {
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: 1fr 4fr;
+  grid-template-columns: minmax(250px, 1fr) 5fr;
+  grid-template-rows: minmax(150px, 1fr) 5fr;
   grid-template-areas:
     "sidebar header"
     "sidebar main";
 }
 
-.sidebar,
-.header,
-.main-content {
-  border: 1px solid black;
-}
-
 .sidebar {
   grid-area: sidebar;
-  padding: 15px;
+  padding: 25px 15px;
   background-color: var(--accent-color);
   display: flex;
   flex-direction: column;
@@ -72,8 +67,60 @@
 
 .header {
   grid-area: header;
+  padding: 25px;
+  display: grid;
+  gap: 50px;
+  .header-icon {
+    width: 25px;
+  }
+  .header-top {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-auto-flow: column;
+    align-items: center;
+    .search-container {
+      display: flex;
+      gap: 15px;
+      .search-input {
+        flex-grow: 1;
+        border: none;
+        border-radius: 15px;
+        background-color: #e3e8ef;
+      }
+    }
+  }
+  .right-buttons {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: end;
+    gap: 15px;
+    .profile-name {
+      font-size: 1.5rem;
+    }
+    button {
+      padding: 10px 30px;
+      background-color: var(--accent-color);
+      font-size: 1.3rem;
+      color: white;
+      border: none;
+      border-radius: 25px;
+    }
+  }
+  .header-bottom {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    .user-greeting {
+      display: flex;
+      gap: 15px;
+    }
+    .profile-picture {
+      width: 40px;
+    }
+  }
 }
 
 .main-content {
   grid-area: main;
+  background-color: var(--content-bg);
 }
