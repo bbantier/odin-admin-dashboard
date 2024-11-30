@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Helvetica", "Segoe UI", "Tahoma", sans-serif;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 4fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+}
+
+.sidebar,
+.header,
+.main-content {
+  border: 1px solid black;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  padding: 15px;
+
+  .logo-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+
+    .logo {
+      width: 40px;
+      height: auto;
+    }
+
+    .page-title {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.header {
+  grid-area: header;
+}
+
+.main-content {
+  grid-area: main;
+}
