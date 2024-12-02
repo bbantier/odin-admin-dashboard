@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 *,
 *::before,
 *::after {
@@ -7,7 +9,7 @@
 }
 
 :root {
-  font-family: "Helvetica", "Segoe UI", "Tahoma", sans-serif;
+  font-family: "Roboto", "Helvetica", "Segoe UI", "Tahoma", sans-serif;
   --accent-color: #0e7490;
   --content-bg: #e3e8ef;
 }
@@ -73,9 +75,6 @@
   .header-icon {
     width: 25px;
   }
-  .profile-picture {
-    border-radius: 50%;
-  }
   .header-top {
     display: grid;
     grid-template-columns: 3fr 2fr;
@@ -100,6 +99,9 @@
     .profile-name {
       font-size: 1.5rem;
     }
+    .profile-picture {
+      height: auto;
+    }
     button {
       padding: 10px 20px;
       background-color: var(--accent-color);
@@ -117,11 +119,13 @@
       display: flex;
       gap: 15px;
     }
-    .profile-picture {
-      width: 40px;
-      height: 40px;
-    }
   }
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
 }
 
 .main-content {
@@ -135,11 +139,13 @@
     "projects announcements"
     "projects trending";
   gap: 30px;
+  justify-content: start;
   .projects {
     grid-area: projects;
   }
   .announcements {
     grid-area: announcements;
+    margin-bottom: 30px;
   }
   .trending {
     grid-area: trending;
@@ -190,6 +196,30 @@
     }
     .announcement:not(:first-child) {
       border-top: 1px solid #dfdfdf;
+    }
+  }
+  .trending {
+    .trending-list {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      display: grid;
+      gap: 15px;
+    }
+    .trending-profile {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      align-items: center;
+      .profile-picture {
+        width: 50px;
+        height: auto;
+      }
+      .profile-info {
+        font-weight: 300;
+        .current-project {
+          color: #6b7280;
+        }
+      }
     }
   }
 }
