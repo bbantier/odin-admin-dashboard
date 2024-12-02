@@ -8,7 +8,7 @@
 
 :root {
   font-family: "Helvetica", "Segoe UI", "Tahoma", sans-serif;
-  --accent-color: #2374e2;
+  --accent-color: #0e7490;
   --content-bg: #e3e8ef;
 }
 
@@ -69,9 +69,12 @@
   grid-area: header;
   padding: 25px;
   display: grid;
-  gap: 50px;
+  gap: 30px;
   .header-icon {
     width: 25px;
+  }
+  .profile-picture {
+    border-radius: 50%;
   }
   .header-top {
     display: grid;
@@ -93,14 +96,14 @@
     display: grid;
     grid-auto-flow: column;
     justify-content: end;
-    gap: 15px;
+    gap: 10px;
     .profile-name {
       font-size: 1.5rem;
     }
     button {
-      padding: 10px 30px;
+      padding: 10px 20px;
       background-color: var(--accent-color);
-      font-size: 1.3rem;
+      font-size: 1rem;
       color: white;
       border: none;
       border-radius: 25px;
@@ -116,6 +119,7 @@
     }
     .profile-picture {
       width: 40px;
+      height: 40px;
     }
   }
 }
@@ -123,4 +127,69 @@
 .main-content {
   grid-area: main;
   background-color: var(--content-bg);
+  padding: 30px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "projects announcements"
+    "projects trending";
+  gap: 30px;
+  .projects {
+    grid-area: projects;
+  }
+  .announcements {
+    grid-area: announcements;
+  }
+  .trending {
+    grid-area: trending;
+  }
+  h2 {
+    margin-bottom: 30px;
+  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    .project-card {
+      font-size: 1.2rem;
+      background-color: white;
+      padding: 30px;
+      border-left: 10px solid #eab308;
+      border-radius: 10px;
+      .project-name {
+        margin-bottom: 0.5rem;
+      }
+      .project-summary {
+        color: #6b7280;
+      }
+      .project-buttons {
+        margin-top: 30px;
+        text-align: right;
+        .project-button {
+          width: 25px;
+        }
+      }
+    }
+  }
+  .announcements-list {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    display: grid;
+    .announcement {
+      padding: 10px 0;
+      .announcement-title {
+        font-size: 1rem;
+      }
+      .announcement-summary {
+        color: #6b7280;
+        margin-top: 5px;
+        text-wrap: pretty;
+      }
+    }
+    .announcement:not(:first-child) {
+      border-top: 1px solid #dfdfdf;
+    }
+  }
 }
